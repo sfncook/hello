@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import {
-  Route,
-  Switch,
-  Redirect
-} from 'react-router';
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+    Link
+} from "react-router-dom";
 import './App.css';
 import Route01 from "./Route01";
 import Route02 from "./Route02";
@@ -18,11 +19,15 @@ class App_ extends Component {
     return (
       <div className="App">
         <Router>
-          <Switch>
-            <Redirect from="/" to="/page01" exact />
-            <Route component={ Route01 } path="/page01" />
-            <Route component={ Route02 } path="/page02" />
-          </Switch>
+            <div>
+                <Link to="/react_page01">Jobs</Link>
+                <Link to="/react_page02">Scripts</Link>
+                <Switch>
+                    <Redirect from="/" to="/react_page01" exact />
+                    <Route component={ Route01 } path="/react_page01" />
+                    <Route component={ Route02 } path="/react_page02" />
+                </Switch>
+            </div>
         </Router>
       </div>
     );
